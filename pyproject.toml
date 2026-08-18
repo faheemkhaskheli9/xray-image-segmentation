@@ -1,0 +1,5 @@
+[project]
+name = "xray-image-segmentation"
+version = "0.1.0"
+description = "2D X-Ray Segmentation"
+requires-python = ">=3.10"
