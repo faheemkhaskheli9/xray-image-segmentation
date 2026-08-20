@@ -39,6 +39,14 @@ X-Ray Image -> Augmentation -> U-Net -> Dice Loss -> Overlay Visualization + Met
 2. Phase 2: U-Net training with Dice loss
 3. Phase 3: Evaluation and overlay visualization tooling
 
+## Task Tracking
+
+Work is broken into phase-tagged user stories tracked as GitHub Issues, not in this file. To see what's open:
+
+    gh issue list --repo faheemkhaskheli9/xray-image-segmentation --state open --label type:user-story
+
+Implement Phase 1 issues first (later phases depend on it). When you start one, add label `status:in-progress`. When you finish, close it referencing the commit (e.g. `git commit -m "... Closes #4"`) and push.
+
 ## 6. Repository Structure
 
 ```text
