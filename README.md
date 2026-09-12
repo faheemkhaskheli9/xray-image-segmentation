@@ -4,7 +4,7 @@
 > This is an original, from-scratch build. It is not affiliated with, and does not
 > contain any code, prompts, data, or business logic from, any employer or client.
 
-![status](https://img.shields.io/badge/status-planned-lightgrey)
+![status](https://img.shields.io/badge/status-phase%201%20in%20progress-yellow)
 ![python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
@@ -83,7 +83,23 @@ cp .env.example .env              # fill in API keys / config
 
 ## 8. Dataset
 
-Document which public dataset(s) or synthetic data generators are used here.
+**Chest X-ray Masks and Labels** — a combined, CC0-licensed re-release of the
+Shenzhen and Montgomery County chest X-ray sets with paired lung segmentation
+masks, published on Kaggle by `nikhilpandey360`:
+<https://www.kaggle.com/datasets/nikhilpandey360/chest-xray-masks-and-labels>.
+
+Manual download steps (Kaggle requires an authenticated API key, so this is
+not scripted):
+
+1. `pip install kaggle` and place your API token at `~/.kaggle/kaggle.json`
+   (see Kaggle's API docs).
+2. `kaggle datasets download -d nikhilpandey360/chest-xray-masks-and-labels -p data/raw --unzip`
+3. Arrange the extracted images/masks under
+   `data/raw/chest-xray-masks-and-labels/{images,masks}/`, matched by filename
+   stem (see `docs/architecture.md` for the exact layout).
+4. Run `python scripts/organize_dataset.py` to validate the pairing and copy
+   it into `data/processed/`.
+
 No proprietary, employer-owned, or client-identifiable data is used in this project.
 
 ## 9. Training / Execution
